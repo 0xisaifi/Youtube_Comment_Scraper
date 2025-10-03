@@ -35,6 +35,8 @@ Open .env and add your actual API keys:
 YT_API_KEY=your-youtube-api-key-here
 GEMINI_API_KEY=your-gemini-api-key-here
 
+IF you encounter with any problems configure your .env file correctly. 
+
 4. Run the server
 npm start
 
@@ -90,4 +92,5 @@ License
 
 This project is open-source. You are free to use, modify, and distribute it as long as proper credit is given.
 ```
+
 
