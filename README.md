@@ -18,7 +18,7 @@ This project is a Node.js + Express server that:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
+git clone https://github.com/0xisaifi/Youtube_Comment_Scraper.git
 cd <your-repo>
 
 2. Install dependencies
@@ -48,6 +48,7 @@ API Endpoints
 POST /scrape-comments
 
 Fetch comments from YouTube videos.
+Look in the console for the results and in UI.
 
 Request body:
 
@@ -89,3 +90,4 @@ License
 
 This project is open-source. You are free to use, modify, and distribute it as long as proper credit is given.
 ```
+
