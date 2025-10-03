@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>YT-Scraper</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <h1>🎥 YT Comment Scraper</h1>
+                <label for="commentCount">How many comments do you want to
+                    scrape?</label>
+                <select id="commentCount">
+                    <option value="5" id="optionValue">5</option>
+                    <option value="8" id="optionValue">8</option>
+                    <option value="10" id="optionValue">10</option>
+                    <option value="12" id="optionValue">12</option>
+                    <option value="15" id="optionValue">15</option>
+                    <option value="17" id="optionValue">17</option>
+                    <option value="20" id="optionValue">20</option>
+                    <!-- will be dynamic-->
+                </select>
+
+                <p class="info">Minimum = 1 video, Maximum = 10 videos</p>
+
+                <div class="box3">
+                    <div class="input-groups">
+                        <li>
+                            <input
+                                type="text"
+                                class="inputBox"
+                                placeholder="Paste YouTube video URL" />
+                        </li>
+                    </div>
+                    <div class="btn">
+                        <button class="addOneMoreVideo">+</button>
+                    </div>
+                </div>
+
+                <button class="scrape">🚀 Scrape</button>
+            </div>
+
+            <div class="outputBox">
+                <h1>hellofffff</h1>
+            </div>
+
+            <div class="ai-box">
+                <h2>AI Chat</h2>
+                <div class="ai-chat-container">
+                    <div class="chat-message user">Hey, what’s up?</div>
+                    <div class="chat-message ai">Ask me anything about the comments.</div>
+                    
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message..." />
+                    <button class="send-btn">Send</button>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="db.js"></script>
+        <script src="script.js"></script>
+
+    </body>
+</html>

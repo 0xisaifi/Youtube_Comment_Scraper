@@ -1,0 +1,373 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Container: three boxes side by side */
+.container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  min-height: 90vh;
+  max-width: none; /* allow full screen width so AI can grow */
+  align-items: stretch; /* make columns same height */
+}
+
+/* Scraper box (matches .card in HTML) */
+.card {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: center;
+}
+
+/* Output box (matches .outputBox in HTML) */
+.outputBox {
+  flex: 1;
+  background: #fefefe;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #111827;
+}
+
+/* AI box */
+.ai-box {
+  /* Only width is resizable */
+  width: 320px; /* explicit width so resize works */
+  flex: 0 0 auto; /* let user-resized width be respected in flex */
+  background: #131313;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  resize: horizontal; /* allow width resize only */
+  overflow: auto;
+  min-width: 610px;
+  max-width: 100%;
+  transition: background 0.2s;
+}
+
+.ai-box:hover {
+  background: #0d0d0e;
+}
+
+/* Scraper box elements */
+.card h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background: #f9fafb;
+  font-size: 0.95rem;
+}
+
+.info {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.box3 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Input group with remove button */
+.input-groups li {
+  list-style: none;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-groups input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* Red placeholder when empty */
+.input-groups input.red::placeholder {
+  color: red;
+  font-weight: 400;
+  opacity: 1;
+}
+
+/* Remove (X) button */
+.remove {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.remove:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.remove:active {
+  transform: scale(0.95);
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.addOneMoreVideo {
+  padding: 6px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #e5e7eb;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.addOneMoreVideo:hover {
+  background: #d1d5db;
+}
+
+.plusBtn {
+  display: none;
+}
+
+.scrape {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.scrape:hover {
+  background: #1f2937;
+}
+
+/* Each video's comment block */
+.video-comments {
+  margin-bottom: 25px;
+  padding: 15px;
+  border-left: 4px solid #4f46e5;
+  background: #f9fafb;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.video-comments:hover {
+  background: #f3f4f6;
+}
+
+.video-comments h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.video-comments ul {
+  list-style: disc inside;
+  padding-left: 10px;
+}
+
+.video-comments li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #374151;
+  word-break: break-word;
+  transition: background 0.15s;
+  padding: 5px 8px;
+  border-radius: 6px;
+}
+
+.video-comments li:hover {
+  background: #e0e7ff;
+}
+
+.video-comments li a {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+.video-comments .video-id {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* Small margin between video blocks */
+.video-comments + .video-comments {
+  margin-top: 20px;
+}
+
+/* Chat container */
+.ai-chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #141414; /* slightly darker inside */
+  padding: 15px;
+  border-radius: 8px;
+  height: 70vh;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #93c5fd transparent;
+}
+
+/* Messages */
+.chat-message {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.chat-message.user {
+  background: #f9fafb;
+  color: #111827;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message.ai {
+  background: #3b82f6;
+  color: #fff;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+/* Input bar */
+.chat-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.send-btn {
+  padding: 10px 16px;
+  background: #1853d1;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.send-btn:hover {
+  background: #fbbf24;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px;
+  }
+  /* Do not override AI box width/resizing per user request */
+  .card,
+  .outputBox,
+  .ai-box {
+    padding: 16px;
+  }
+  .card h1,
+  .outputBox h1,
+  .ai-box h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .outputBox {
+    max-height: 60vh;
+    padding: 15px;
+  }
+  .video-comments {
+    padding: 12px;
+  }
+  label {
+    font-size: 0.95rem;
+  }
+  select,
+  .input-groups input {
+    font-size: 1rem;
+    padding: 12px;
+  }
+  .scrape {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+  .addOneMoreVideo {
+    padding: 8px 14px;
+  }
+}
